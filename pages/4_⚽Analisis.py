@@ -126,10 +126,12 @@ if choice == 'Equipo':
 
     # Capturar el clic del usuario en el gráfico
     selected_points = plotly_events(fig, click_event=True, hover_event=False)
-    st.write(selected_points)
+    
+    
     # Si se ha seleccionado un punto, mostrar el video asociado
     df = df.reset_index(drop=True)
     if selected_points:
+        st.write(selected_points)
         point_idx = selected_points[0]['pointIndex']
         video_url = df.at[point_idx, 'Video'] #cuidado aqui, si hay dos fuente de video no funcionará
         curve_n = selected_points[0]['curveNumber']
