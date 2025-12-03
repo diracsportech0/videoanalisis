@@ -133,7 +133,7 @@ if choice == 'Equipo':
         point_idx = selected_points[0]['pointIndex']
         video_url = df.at[point_idx, 'Video'] #cuidado aqui, si hay dos fuente de video no funcionará
         curve_n = selected_points[0]['curveNumber']
-        start_time = get_seg(df, curve_n, point_idx,'seg_star')
+        start_time = get_seg(df, curve_n, point_idx,'seg_start')
         end_time = get_seg(df, curve_n, point_idx,'seg_end')
         st.video(video_url, start_time=start_time, end_time=end_time, loop=0, muted=0)
 
