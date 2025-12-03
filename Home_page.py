@@ -15,7 +15,7 @@ with colC:
     pass
 
 #FORMATO
-st.header(f'Bienvenido, DT Cesar Salas!!')
+st.header(f'Bienvenido, DT cCesar Salas!!')
 
 
 
