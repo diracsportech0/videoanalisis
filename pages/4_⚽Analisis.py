@@ -114,7 +114,7 @@ if choice == 'Equipo':
     #Mapeo de punto al que se hace clic con el evento
     #Esto se realiza porque se colocaron varios colores
     tipo_list = list(df.Tipo.unique())
-    df['CurveN'] = df['Fase'].apply(lambda x: tipo_list.index(x) if x in tipo_list else -1)
+    df['CurveN'] = df['Tipo'].apply(lambda x: tipo_list.index(x) if x in tipo_list else -1)
     df['ptIndx'] = df.groupby('CurveN').cumcount()
     st.write(df)
     
