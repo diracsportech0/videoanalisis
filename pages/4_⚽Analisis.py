@@ -112,13 +112,12 @@ if choice == 'Equipo':
 
 
     #Mapeo de punto al que se hace clic con el evento
-    '''
     #Esto se realiza porque se colocaron varios colores
     output_list = list(df.output.unique())
     df['CurveN'] = df['output'].apply(lambda x: output_list.index(x) if x in output_list else -1)
     df['ptIndx'] = df.groupby('CurveN').cumcount()
     #st.write(df)
-    '''
+    
     #funcion para entraer el tiempo de inicio y fin de la jugada
     def get_seg(df, curve_value, point_value, get_col):
         result = df.loc[(df['CurveN'] == curve_value) & (df['ptIndx'] == point_value), get_col]
