@@ -78,13 +78,13 @@ if choice == 'Equipo':
 
 # ------ GRAFICANDO CAMPOGRAMA
     fig = px.scatter(
-        df, x='x', y='y',# labels={'Tipo': 'Tipo'},
+        df, x='x', y='y', labels={'Tipo': 'Tipo'},
         #color='Tipo',
-        #color_discrete_map={
-        #    'Correcto': 'black',
-        #    'Erroneo': 'red',
-        #    'No definido': 'blue'
-        #},
+        color_discrete_map={
+            'Tiro libre': 'black',
+            'Corner': 'red',
+            'Lateral': 'blue'
+        },
         title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['Tipo','Rival']
     )
     # Agregar la imagen de fondo al layout
