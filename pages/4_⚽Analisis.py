@@ -79,7 +79,7 @@ if choice == 'Equipo':
 # ------ GRAFICANDO CAMPOGRAMA
     fig = px.scatter(
         df, x='x', y='y', labels={'Tipo': 'Tipo'},
-        #color='Tipo',
+        color='Tipo',
         color_discrete_map={
             'Tiro libre': 'black',
             'Corner': 'red',
