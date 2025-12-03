@@ -126,6 +126,7 @@ if choice == 'Equipo':
 
     # Capturar el clic del usuario en el gráfico
     selected_points = plotly_events(fig, click_event=True, hover_event=False)
+    st.write(selected_points)
     # Si se ha seleccionado un punto, mostrar el video asociado
     df = df.reset_index(drop=True)
     if selected_points:
