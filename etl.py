@@ -19,7 +19,7 @@ def convert_to_seconds(time_str):
     return minutes * 60 + seconds
 
 # Aplicar la función a la columna 'time' y crear una nueva columna 'seconds'
-df['seg_star'] = df['start_time'].apply(convert_to_seconds)
+df['seg_start'] = df['start_time'].apply(convert_to_seconds)
 df['seg_clic'] = df['time'].apply(convert_to_seconds)
 df['seg_end'] = df['end_time'].apply(convert_to_seconds)
 
