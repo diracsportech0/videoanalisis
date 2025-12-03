@@ -34,7 +34,7 @@ if choice == 'Equipo':
     #RIVAL
     rivales = df.Rival.unique()
     n_partido = len(rivales)-1
-    match = st.sidebar.selectbox(
+    menu_match = st.sidebar.selectbox(
         "Rival",
         rivales,
         n_partido)
@@ -62,16 +62,16 @@ if choice == 'Equipo':
 
 
     #FILTRADO DE data
-    df = df[df.Rival==match]
+    df = df[df.Rival==menu_match]
     df = df[df.Fase==menu_fases]
     if menu_zone == 'Todo':
         pass
     else:
-        df = df[df.zone==menu_zone]
+        df = df[df.Tercio==menu_zone]
     if menu_tipo == 'Todos':
         pass
     else:
-        df = df[df.zone==menu_tipo]      
+        df = df[df.Tipo==menu_tipo]      
 
 # ------ GRAFICOS O TABLA RESUMEN DE DATA
 
@@ -85,7 +85,7 @@ if choice == 'Equipo':
         #    'Erroneo': 'red',
         #    'No definido': 'blue'
         #},
-        title=f'{menu_fases} vs {match} <br> ➜', hover_data=['Tipo','Rival']
+        title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['Tipo','Rival']
     )
     # Agregar la imagen de fondo al layout
     image = Image.open('campo.png')
@@ -131,7 +131,7 @@ if choice == 'Equipo':
     df = df.reset_index(drop=True)
     if selected_points:
         point_idx = selected_points[0]['pointIndex']
-        video_url = df.at[point_idx, 'video'] #cuidado aqui, si hay dos fuente de video no funcionará
+        video_url = df.at[point_idx, 'Video'] #cuidado aqui, si hay dos fuente de video no funcionará
         curve_n = selected_points[0]['curveNumber']
         start_time = get_seg(df, curve_n, point_idx,'seg_star')
         end_time = get_seg(df, curve_n, point_idx,'seg_end')
@@ -139,4 +139,4 @@ if choice == 'Equipo':
 
 # ----------- ANALISIS: JUGADORES -------------------------------------
 elif choice == 'Jugadores':
-    pass
+    st.write("NO DISPONIBLE")
