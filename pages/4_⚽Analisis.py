@@ -134,6 +134,7 @@ if choice == 'Equipo':
         st.write(selected_points)
         point_idx = selected_points[0]['pointIndex']
         video_url = df.at[point_idx, 'Video'] #cuidado aqui, si hay dos fuente de video no funcionará
+        st.write(video_url)
         curve_n = selected_points[0]['curveNumber']
         start_time = get_seg(df, curve_n, point_idx,'seg_start')
         end_time = get_seg(df, curve_n, point_idx,'seg_end')
