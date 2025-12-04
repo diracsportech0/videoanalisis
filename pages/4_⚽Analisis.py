@@ -95,7 +95,7 @@ if choice == 'Equipo':
             'Contra ataq': 'red',
             'Combinativo': 'blue'
         },
-        title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['Tipo','Rival']
+        title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['time']
     )
     # Agregar la imagen de fondo al layout
     image = Image.open('campo.png')
