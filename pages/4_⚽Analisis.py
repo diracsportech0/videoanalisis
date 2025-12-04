@@ -41,7 +41,7 @@ if choice == 'Equipo':
     #FASE Y TERCIO
     fases = df.Fase.unique()
     fases_list = fases.tolist()
-    zona = list(df.Tercio.unique())
+    zona = list(df.zone.unique())
     #FASE --OK
     menu_fases = st.sidebar.selectbox(
         "Fase",
@@ -53,13 +53,19 @@ if choice == 'Equipo':
         ['Todo']+zona,
         0)
     #Tipo de fase
-    tipo_fase = df.Tipo.unique()
-    tipo_list = tipo_fase.tolist()
-    menu_tipo = st.sidebar.selectbox(
-        "Tipo",
-        ['Todos']+tipo_list,
-        0)
-
+    #tipo_fase = df.Tipo.unique()
+    #tipo_list = tipo_fase.tolist()
+    #menu_tipo = st.sidebar.selectbox(
+    #    "Tipo",
+    #    ['Todos']+tipo_list,
+    #    0)
+    #Resultado
+    resultado = df.Resultado.unique()
+    result_list = resultado.tolist()
+    menu_result = st.sidebar.selectbox(
+        "Resultado",
+        ['Todos']+result_list,
+        0)    
 
     #FILTRADO DE data
     df = df[df.Rival==menu_match]
@@ -67,11 +73,15 @@ if choice == 'Equipo':
     if menu_zone == 'Todo':
         pass
     else:
-        df = df[df.Tercio==menu_zone]
-    if menu_tipo == 'Todos':
+        df = df[df.zone==menu_zone]
+    #if menu_tipo == 'Todos':
+    #    pass
+    #else:
+    #    df = df[df.Tipo==menu_tipo]  
+    if menu_result == 'Todos':
         pass
     else:
-        df = df[df.Tipo==menu_tipo]      
+        df = df[df.Resultado==menu_result]    
 
 # ------ GRAFICOS O TABLA RESUMEN DE DATA
 
@@ -81,9 +91,9 @@ if choice == 'Equipo':
         df, x='x', y='y', labels={'Tipo': 'Tipo'},
         color='Tipo',
         color_discrete_map={
-            'Tiro libre': 'black',
-            'Corner': 'red',
-            'Lateral': 'blue'
+            'Directo': 'black',
+            'Contra ataq': 'red',
+            'Combinativo': 'blue'
         },
         title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['Tipo','Rival']
     )
