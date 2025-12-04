@@ -92,7 +92,8 @@ if choice == 'Equipo':
         color_discrete_map={
             'Directo': 'black',
             'Contra ataq': 'red',
-            'Combinativo': 'blue'
+            'Combinativo': 'blue',
+            'Tiro libre': 'blue'
         },
         title=f'{menu_fases} vs {menu_match} <br> ➜', hover_data=['time']
     )
