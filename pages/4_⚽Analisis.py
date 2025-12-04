@@ -16,7 +16,6 @@ from streamlit_plotly_events import plotly_events
 from PIL import Image
 #url_powerbi = '<iframe title="Plataforma Dirac v1.1" width="900" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiOWM0YmNkMGEtMzc4Ni00MTI4LTk0OGEtZmFhNzc5NTZiYTkxIiwidCI6IjBlMGNiMDYwLTA5YWQtNDlmNS1hMDA1LTY4YjliNDlhYTFmNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>'
 #st.markdown(url_powerbi, unsafe_allow_html=True)
-st.write(df)
 #----------------------
 
 #st.title(f'⚽ {name_club}')
@@ -126,7 +125,7 @@ if choice == 'Equipo':
     tipo_list = list(df.Tipo.unique())
     df['CurveN'] = df['Tipo'].apply(lambda x: tipo_list.index(x) if x in tipo_list else -1)
     df['ptIndx'] = df.groupby('CurveN').cumcount()
-    st.write(df)
+    #st.write(df)
     
     #funcion para entraer el tiempo de inicio y fin de la jugada
     def get_seg(df, curve_value, point_value, get_col):
@@ -141,13 +140,13 @@ if choice == 'Equipo':
     # Si se ha seleccionado un punto, mostrar el video asociado
     df = df.reset_index(drop=True)
     if selected_points:
-        st.write(selected_points)
+        #st.write(selected_points)
         point_idx = selected_points[0]['pointIndex']
         video_url = df.at[point_idx, 'Video'] #cuidado aqui, si hay dos fuente de video no funcionará
         curve_n = selected_points[0]['curveNumber']
-        st.write(curve_n)
+        #st.write(curve_n)
         start_time = get_seg(df, curve_n, point_idx,'seg_start')
-        st.write(start_time)
+        #st.write(start_time)
         end_time = get_seg(df, curve_n, point_idx,'seg_end')
         st.video(video_url, start_time=start_time, end_time=end_time, loop=0, muted=0)
 
